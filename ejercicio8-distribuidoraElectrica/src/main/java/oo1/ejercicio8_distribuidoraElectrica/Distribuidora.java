@@ -27,11 +27,11 @@ public class Distribuidora {
 				.sum();
 	}
 	
-	//ESTO ES LO QUE TENGO QUE HACER?
 	public List<Factura> facturar(){
 		return usuarios.stream()
 				.map(u -> u.facturarEnBaseA(this.getPrecioKW()))
-				.collect(Collectors.toList());
+				.collect(Collectors.toList()); 
+		
 	}
 
 	public double getPrecioKW() {
