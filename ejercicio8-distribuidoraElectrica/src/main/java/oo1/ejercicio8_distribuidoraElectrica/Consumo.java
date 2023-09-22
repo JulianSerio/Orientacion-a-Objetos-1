@@ -2,6 +2,7 @@ package oo1.ejercicio8_distribuidoraElectrica;
 
 import java.time.LocalDate;
 
+
 public class Consumo {
 	private LocalDate fecha;
 	private double consumoEnergiaActiva;
