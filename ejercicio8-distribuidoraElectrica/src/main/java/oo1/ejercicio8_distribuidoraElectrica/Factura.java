@@ -16,20 +16,39 @@ public class Factura {
 	}
 	
 	public double montoTotal() {
-		return montoEnergiaActiva - descuento;
+		return montoEnergiaActiva - (this.montoEnergiaActiva * (this.descuento/100));
 	}
 
-	public double descuento() {
+	public double getMontoEnergiaActiva() {
+		return montoEnergiaActiva;
+	}
+
+	public void setMontoEnergiaActiva(double montoEnergiaActiva) {
+		this.montoEnergiaActiva = montoEnergiaActiva;
+	}
+
+	public double getDescuento() {
 		return descuento;
 	}
 
-	public LocalDate fecha() {
+	public void setDescuento(double descuento) {
+		this.descuento = descuento;
+	}
+
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public Usuario usuario() {
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
+	}
+
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }
