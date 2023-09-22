@@ -21,11 +21,14 @@ public class Usuario {
 	}
 	
 	public Consumo ultimoConsumo() {
-		return consumos.get(consumos.size() - 1);
+		return consumos.stream()
+				.max((fe1, fe2) -> fe1.getFecha()
+				.compareTo(fe2.getFecha())).orElse(null);
 	}
+		
 	
 	public double ultimoConsumoActiva() {
-		return this.ultimoConsumo().getConsumoEnergiaActiva();
+		return this.ultimoConsumo()!=null ? this.ultimoConsumo().getConsumoEnergiaActiva() : 0;
 	}
 	
 	public Factura facturarEnBaseA(double precioKw) {
@@ -36,13 +39,13 @@ public class Usuario {
 
 	private double descuento() {
         double descuento = 0;
-        if (this.ultimoConsumo().factorDePotencia() > 0.8) {
-            descuento = 0.10;
+        if (this.ultimoConsumoActiva() != 0)
+        	if (this.ultimoConsumo().factorDePotencia() > 0.8) {
+            descuento = 10;
         }
         return descuento;
     }
 	
-	//TODO???
 	public List<Factura> facturas(){
 		return facturas;
 	}
