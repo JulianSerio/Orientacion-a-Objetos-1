@@ -5,13 +5,20 @@ import org.junit.jupiter.api.Test;
 
 
 public class CajaDeAhorroTest {
+	CajaDeAhorro caja1;
+	CajaDeAhorro caja2;
+	
+	@BeforeEach
+	public void setUp() {
+		caja1 = new CajaDeAhorro();
+		caja2 = new CajaDeAhorro();
+	
+		caja1.depositar(1000);
+	}
+	
 	
 	@Test
 	public void testExtraer() {
-		CajaDeAhorro caja1 = new CajaDeAhorro();
-		CajaDeAhorro caja2 = new CajaDeAhorro();
-		
-		caja1.depositar(1000);
 		assertEquals(false,caja1.extraer(1000));
 		caja1.depositar(500);
 		assertEquals(true,caja1.extraer(1000));
@@ -19,12 +26,9 @@ public class CajaDeAhorroTest {
 	
 	@Test
 	public void testTransferirACuenta() {
-		CajaDeAhorro caja1 = new CajaDeAhorro();
-		CajaDeAhorro caja2 = new CajaDeAhorro();
-		
-		caja1.depositar(1000);
 		assertEquals(true, caja1.transferirACuenta(500, caja2));
 		assertEquals(false, caja1.transferirACuenta(500, caja2));
+		
 	}
 	
 	
