@@ -55,7 +55,7 @@ public class TestClienteDeCorreo {
 	
 	@Test
 	public void testBuscar() {
-		assertNull(cliente.buscar("Mamadera"));
+		assertNull(cliente.buscar("HOLA 1"));
 		carpetaA.agregarCorreo(emailA);
 		carpetaB.agregarCorreo(emailB);
 		carpetaB.agregarCorreo(emailC);
