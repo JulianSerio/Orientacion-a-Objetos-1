@@ -24,7 +24,7 @@ public class DataLapse implements DataLapseInterface {
 		//return from.until(to).getDays();
 		//Obtengo Period y obtengo los dias pero no toma en cuenta los años
 		
-		return (int) ChronoUnit.DAYS.between(from, to);
+		return new Long(ChronoUnit.DAYS.between(from, to)).intValue(); //probar
 	}
 	
 	public boolean includesDate(LocalDate other) {
