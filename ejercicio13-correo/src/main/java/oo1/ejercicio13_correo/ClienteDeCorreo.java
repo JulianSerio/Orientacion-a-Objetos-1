@@ -7,8 +7,8 @@ public class ClienteDeCorreo {
 	private Carpeta inbox;
 	private List<Carpeta> carpetas;
 	
-	public ClienteDeCorreo(Carpeta c) {
-		inbox = c;
+	public ClienteDeCorreo() {
+		this.inbox = new Carpeta("Inbox");
 		this.carpetas = new ArrayList<>();
 	}
 	
