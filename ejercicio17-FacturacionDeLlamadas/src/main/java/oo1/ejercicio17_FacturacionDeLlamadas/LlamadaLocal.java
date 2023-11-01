@@ -1,6 +1,5 @@
 package oo1.ejercicio17_FacturacionDeLlamadas;
 
-import java.sql.Time;
 import java.time.LocalDate;
 
 public class LlamadaLocal extends Llamada {

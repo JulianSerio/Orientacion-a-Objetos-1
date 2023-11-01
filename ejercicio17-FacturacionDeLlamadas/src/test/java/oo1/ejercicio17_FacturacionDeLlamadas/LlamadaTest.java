@@ -21,19 +21,13 @@ public class LlamadaTest {
 		urbana = new LlamadaInterurbana(LocalDate.of(2023, 7, 15),800,20,221001,221003,20);
 	}
 	
-	
-	
-	@Test
-	public void testLlamadasCliente() {
-		assertFalse(local.llamadasDeCliente(221002));
-		assertTrue(local.llamadasDeCliente(221001));
-	}
-	
+
 	@Test
 	public void testLlamadaLocal() {
 		assertNotEquals(0,local.costoPorLlamada());
 		assertNotEquals(-1,local.costoPorLlamada());
 		assertEquals(10,local.costoPorLlamada());
+		assertEquals(221001,local.getNumeroLlama());
 	}
 	
 	@Test
@@ -41,6 +35,8 @@ public class LlamadaTest {
 		assertNotEquals(0,inter.costoPorLlamada());
 		assertNotEquals(-1,inter.costoPorLlamada());
 		assertEquals(40,inter.costoPorLlamada());
+		assertEquals(221000001,inter.getNumeroLlama());
+
 	}
 	
 	@Test
@@ -48,7 +44,7 @@ public class LlamadaTest {
 		assertNotEquals(0,urbana.costoPorLlamada());
 		assertNotEquals(-1,urbana.costoPorLlamada());
 		assertEquals(45,urbana.costoPorLlamada());
-	}
+		assertEquals(221001,urbana.getNumeroLlama());
 
-	
+	}
 }

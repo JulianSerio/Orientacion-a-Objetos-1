@@ -3,6 +3,9 @@ package oo1.ejercicio17_FacturacionDeLlamadas;
 import java.sql.Time;
 import java.time.LocalDate;
 
+import java.sql.Time;
+import java.time.LocalDate;
+
 public abstract class Llamada {
 	private LocalDate fecha;
 	private double hora;
@@ -41,9 +44,9 @@ public abstract class Llamada {
 		return numeroRecibe;
 	}
 
-	public boolean llamadasDeCliente (int numero) {
-		return this.getNumeroLlama() == numero;
 	
+	public boolean comparoFecha(LocalDate desde, LocalDate hasta) {
+		return this.fecha.isEqual(desde) || this.fecha.isAfter(desde) && this.fecha.isBefore(hasta) || this.fecha.isEqual(hasta);
 	}
 	
 	

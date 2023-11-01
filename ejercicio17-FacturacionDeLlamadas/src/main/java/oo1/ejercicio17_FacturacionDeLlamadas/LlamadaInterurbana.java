@@ -11,7 +11,7 @@ public class LlamadaInterurbana extends Llamada {
 		this.distancia = distancia;
 	}
 
-	@Override
+
 	public double costoPorLlamada() {
 		double costo = 5;
 		if (distancia < 100) {
@@ -31,6 +31,4 @@ public class LlamadaInterurbana extends Llamada {
 	private double montoDuracion(double valor) {
 		return super.getDuracion() * valor;
 	}
-	
-	
 }

@@ -2,10 +2,15 @@ package oo1.ejercicio17_FacturacionDeLlamadas;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 public class LlamadaInternacional extends Llamada{
 	private String paisOrigen;
 	private String paisDestino;
+	private LocalTime hour2;
 	
 	public LlamadaInternacional(LocalDate fecha, double hora, double duracion, int numeroLlama, int numeroRecibe,
 			String paisOrigen, String paisDestino) {
