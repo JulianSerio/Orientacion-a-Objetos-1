@@ -60,7 +60,8 @@ public class Sistema {
 	//Crear un pedido
 	public void crearPedido(Cliente cliente, Producto producto, int cantidad, FormaDePago pago, TipoEnvio envio) {
 		Cliente cli = this.buscarCliente(cliente.getNombre());  //hay que considerar que el producto puede no estar en la lista de productos a la venta? 
-		cli.crearPedido(producto, cantidad, pago, envio);
+		if (cli == null) return
+		if (producto.verificarStock(cantidad) cli.crearPedido(producto, cantidad, pago, envio);
 	}
 	
 	//Calcular el costo total de un pedido
