@@ -1,0 +1,71 @@
+package oo1.ejercicio19_MercadoDeObjetos;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Sistema {
+	private List<Cliente> clientes;
+	private List<Vendedor> vendedores;
+	private List<Producto> productos;
+	
+	public Sistema() {
+		clientes = new ArrayList<Cliente>();
+		vendedores = new ArrayList<Vendedor>();
+		productos = new ArrayList<Producto>();
+	}
+	
+	//Registrar un vendedor
+	public Vendedor registrarVendedor(String nombre, String direccion) {
+		Vendedor v = new Vendedor(nombre,direccion);
+		vendedores.add(v);
+		return v;
+	}
+	
+	//Buscar un vendedor
+	public Vendedor buscarVendedor(String nombre) {
+		return vendedores.stream()
+				.filter(v -> v.coincide(nombre))
+				.findFirst().orElse(null);
+	}
+	
+	//Registrar un cliente
+	public Cliente registrarCliente(String nombre, String direccion) {
+		Cliente c = new Cliente(nombre,direccion);
+		clientes.add(c);
+		return c;
+	}
+	
+	//Buscar un cliente
+	public Cliente buscarCliente(String nombre) {
+		return clientes.stream()
+				.filter(c -> c.coincide(nombre))
+				.findFirst().orElse(null);
+	}
+	
+	//Poner un producto a la venta
+	public Producto ponerProductoALaVenta(String nombre,String descripcion,double precio,int stock,Vendedor vendedor) {
+		Producto p = new Producto(nombre,descripcion,precio,stock,vendedor);
+		productos.add(p);
+		return p;
+	}
+	
+	//Buscar un producto
+	public List<Producto> buscarProducto(String nombre){
+		return productos.stream()
+				.filter(p -> p.coincide(nombre))
+				.collect(Collectors.toList());
+	}
+	
+	//Crear un pedido
+	public void crearPedido(Cliente cliente, Producto producto, int cantidad, FormaDePago pago, TipoEnvio envio) {
+		Cliente cli = this.buscarCliente(cliente.getNombre());  //hay que considerar que el producto puede no estar en la lista de productos a la venta? 
+		cli.crearPedido(producto, cantidad, pago, envio);
+	}
+	
+	//Calcular el costo total de un pedido
+	public double calcularCostoTotal(Pedido pedido) {
+		return pedido.precioDelPedido();
+	}
+	
+}
