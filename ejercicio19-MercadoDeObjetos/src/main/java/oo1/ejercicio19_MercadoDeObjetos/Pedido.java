@@ -14,10 +14,10 @@ public class Pedido {
 	}
 	
 	public double precioDelPedido() {
-		return this.envio.costo() + this.pago.precioFinal(this.precioXCantidad());
+		return this.envio.costo() + this.pago.precioFinal(this.precioBase());
 	}
 	
-	private double precioXCantidad() {
+	private double precioBase() {
 		return this.producto.getPrecio() * this.cantidadSolicitada;
 	}
 
