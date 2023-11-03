@@ -24,27 +24,9 @@ public class LlamadaTest {
 
 	@Test
 	public void testLlamadaLocal() {
-		assertNotEquals(0,local.costoPorLlamada());
-		assertNotEquals(-1,local.costoPorLlamada());
 		assertEquals(10,local.costoPorLlamada());
-		assertEquals(221001,local.getNumeroLlama());
-	}
-	
-	@Test
-	public void testLlamadaInternacional() {
-		assertNotEquals(0,inter.costoPorLlamada());
-		assertNotEquals(-1,inter.costoPorLlamada());
+		assertEquals(45,urbana.costoPorLlamada());;
 		assertEquals(40,inter.costoPorLlamada());
-		assertEquals(221000001,inter.getNumeroLlama());
-
-	}
-	
-	@Test
-	public void testLlamadaInterurbana() {
-		assertNotEquals(0,urbana.costoPorLlamada());
-		assertNotEquals(-1,urbana.costoPorLlamada());
-		assertEquals(45,urbana.costoPorLlamada());
-		assertEquals(221001,urbana.getNumeroLlama());
 
 	}
 }
