@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Sistema {
 	private List<Cliente> clientes;
-	private List<Vendedor> vendedores;
+	private List<Persona> vendedores;
 	private List<Producto> productos;
 	
 	public Sistema() {
@@ -16,14 +16,14 @@ public class Sistema {
 	}
 	
 	//Registrar un vendedor
-	public Vendedor registrarVendedor(String nombre, String direccion) {
+	public Persona registrarVendedor(String nombre, String direccion) {
 		Vendedor v = new Vendedor(nombre,direccion);
 		vendedores.add(v);
 		return v;
 	}
 	
 	//Buscar un vendedor
-	public Vendedor buscarVendedor(String nombre) {
+	public Persona buscarVendedor(String nombre) {
 		return vendedores.stream()
 				.filter(v -> v.coincide(nombre))
 				.findFirst().orElse(null);
